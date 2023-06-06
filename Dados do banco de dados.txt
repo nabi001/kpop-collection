@@ -1,0 +1,57 @@
+// Dados do banco de dados
+const database = [
+  { id: 1, name: 'Foto 1', group: 'Grupo A' },
+  { id: 2, name: 'Foto 2', group: 'Grupo B' },
+  { id: 3, name: 'Foto 3', group: 'Grupo A' },
+  { id: 4, name: 'Foto 4', group: 'Grupo C' },
+];
+
+// Wishlist personalizada do usuário
+let wishlist = [];
+
+// Função para renderizar a home page
+function renderHomePage() {
+  // Código para renderizar a home page
+  console.log('Home Page');
+}
+
+// Função para renderizar a aba de perfil
+function renderProfilePage() {
+  // Código para renderizar a aba de perfil
+  console.log('Perfil');
+}
+
+// Função para pesquisar no banco de dados
+function searchDatabase(query) {
+  const results = database.filter(item => item.name.includes(query));
+  return results;
+}
+
+// Função para adicionar uma foto à wishlist
+function addToWishlist(photo) {
+  wishlist.push(photo);
+}
+
+// Função para renderizar a wishlist
+function renderWishlist() {
+  console.log('Wishlist:');
+  wishlist.forEach(item => {
+    console.log(`- ${item.name} (${item.group})`);
+  });
+}
+
+// Exemplo de uso das funções
+renderHomePage();
+renderProfilePage();
+
+const searchQuery = 'Foto';
+const searchResults = searchDatabase(searchQuery);
+console.log(`Resultados da pesquisa para "${searchQuery}":`);
+searchResults.forEach(item => {
+  console.log(`- ${item.name} (${item.group})`);
+});
+
+const selectedPhoto = searchResults[0]; // Supondo que a primeira foto foi selecionada
+addToWishlist(selectedPhoto);
+
+renderWishlist();
